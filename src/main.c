@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "libs/unity.h"
+#include "../libs/unity.h"
 
 void setUp(void)
 {
