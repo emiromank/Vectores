@@ -1,30 +1,30 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "../libs/List.h"
+#include "../libs/list.h"
 
-List *InitList(size_t elements)
+Vector InitVector(size_t elements)
 {
-    List *newList = NULL;
-    newList = malloc(sizeof(List));
+    Vector newList = NULL;
+    newList = malloc(sizeof(Vector));
 
-    newList->elements = elements;
-    newList->list = calloc(elements, sizeof(float));
+    newList->nelements = elements;
+    newList->elements = calloc(elements, sizeof(float));
 
     return newList;
 };
 
-List *SetListSize(List *myList, size_t newElements)
+Vector SetVectorSize(Vector myList, size_t newElements)
 {
-    myList->elements = newElements;
-    myList->list = realloc(myList, newElements * sizeof(float));
+    myList->nelements = newElements;
+    myList->elements = realloc(myList, newElements * sizeof(float));
 
     return myList;
 };
 
-void printList(List *myList)
+void printVector(Vector myList)
 {
-    for (size_t n = 0; n < myList->elements; n++)
+    for (size_t n = 0; n < myList->nelements; n++)
     {
-        printf("\tMemory Address: %p\n\tElement Number: %d\n\tValue: %f\n", (myList->list) + n, n, myList->list[n]);
+        printf("\tMemory Address: %p\n\tElement Number: %ld\n\tValue: %f\n", (myList->elements) + n, n, myList->elements[n]);
     }
 };

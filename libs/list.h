@@ -4,25 +4,27 @@
 *@name list.h
 **/
 
-#ifndef list_h
-#define list_h
+#ifndef vector_h
+#define vector_h
+#include <stdlib.h>
+#include <stdio.h>
 
-#define LIST struct list
+#define VECTOR struct _vector
 
 //struct
-LIST
+VECTOR
 {
-    float *list;
-    size_t elements;
+    float *elements;
+    size_t nelements;
 };
 //Interfaz
-typedef LIST List;
+typedef struct _vector* Vector;
 
 //Constructor
-List *InitList(size_t elements);
+Vector InitVector(size_t nelements);
 
-List *SetListSize(List *myList, size_t newElements);
+Vector SetVectorSize(Vector myList, size_t newElements);
 
-void printList(List *myList);
+void printVector(Vector myList);
 
 #endif
